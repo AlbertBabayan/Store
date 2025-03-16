@@ -1,0 +1,48 @@
+<div class="container">
+  <div>
+    <div class="title">
+      <h4>Register</h4>
+    </div>
+    <form [formGroup]="createForm">
+      <div>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" formControlName="name">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="text" formControlName="password">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Confirm password</mat-label>
+          <input matInput type="text" formControlName="confirmPassword">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Photo url</mat-label>
+          <input matInput type="text" formControlName="photoUrl">
+        </mat-form-field>
+      </div>
+      <div class="action">
+        <div class="reg-wrapper">
+          <button (click)="create()" type="submit" class="reg" mat-flat-button>Register</button>
+        </div>
+        <div class="nav-to-log-in">
+          <a (click)="navToLogIn()" type="button">Log in to your account!</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+  .form-field{
+    width: 100%;
+  }
+  .action {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    .reg-wrapper {
+      .reg {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+    .nav-to-log-in {
+      display: flex;
+      justify-content: center;
+      text-decoration: underline;
+      cursor: pointer;
+      color: navy;
+    }
+  }
+}

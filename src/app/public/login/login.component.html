@@ -1,0 +1,33 @@
+<div class="container">
+    <div>
+      <div class="title">
+        <h4>LOG IN</h4>
+      </div>
+      <form [formGroup]="loginForm">
+        <div>
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="text" formControlName="password">
+          </mat-form-field>
+        </div>
+        <div class="action">
+          <div class="log-in-wrapper">
+            <button (click)="login()" type="submit" class="log-in" mat-flat-button>LOG IN</button>
+          </div>
+          <div class="role-wrapper">
+            <button type="button" class="role-field" mat-raised-button>Guest</button>
+            <button type="button" class="role-field" mat-raised-button>Admin</button>
+          </div>
+          <div class="nav-to-reg">
+            <a (click)="navToRegister()" type="button">Create a new account!</a>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
