@@ -7,6 +7,8 @@ import {MatInput} from '@angular/material/input';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import {comparisonValidator} from '../../infrastructure/validators/match-password.validator';
+import {JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +18,7 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
     MatFormField,
     MatInput,
     MatLabel,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss'
@@ -33,7 +35,7 @@ export class RegistrationComponent {
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]],
     photoUrl: ['https://picsum.photos/800', [Validators.required]],
-  })
+  },{ validators: [comparisonValidator] })
 
   public create() {
     this.authService.create({
