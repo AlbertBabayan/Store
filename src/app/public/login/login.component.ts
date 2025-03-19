@@ -25,7 +25,6 @@ export class LoginComponent {
     password: ['', [Validators.required]],
   })
 
-
   public login() {
     this.authService.login(this.loginForm.getRawValue()).pipe(
       takeUntilDestroyed(this.destroyRef)

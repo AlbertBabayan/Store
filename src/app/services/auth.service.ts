@@ -12,10 +12,22 @@ export class AuthService {
 
   private http = inject(HttpClient);
 
+  public static getAccessToken(): string | null {
+    return localStorage.getItem('access_token');
+  }
+
+  public get isSingedIn(): boolean {
+    return !!AuthService.getAccessToken();
+  }
+
 
   public login(payload: Pick<IAuth,'email' | 'password'>): Observable<IUserToken> {
     const url = 'https://api.escuelajs.co/api/v1/auth/login';
-    return this.http.post<IUserToken>(url, payload);
+    return this.http.post<IUserToken>(url, payload).pipe(
+      tap(res => {
+        localStorage.setItem('access_token', res.access_token);
+      })
+    )
   }
 
   public create(payload: IAuth): Observable<ICreatedUser> {

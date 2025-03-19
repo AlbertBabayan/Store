@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--navbar-height));
+  background-image: url("/home.png");
+  background-size: cover;
+  .inner {
+    font-size: 50px;
+  }
+}

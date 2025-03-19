@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-private',
@@ -11,5 +11,9 @@ import {RouterOutlet} from '@angular/router';
   styleUrl: './private.component.scss'
 })
 export class PrivateComponent {
+  private router = inject(Router);
 
+  public navToProducts() {
+    this.router.navigate(['products']);
+  }
 }

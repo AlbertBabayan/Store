@@ -1,4 +1,4 @@
-import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
+import {AbstractControl, ValidationErrors} from '@angular/forms';
 
 export function comparisonValidator(group: AbstractControl<{ password: string, confirmPassword: string }>): ValidationErrors | null {
   const {password, confirmPassword} = group.value;
