@@ -1,11 +1,44 @@
+<div class="container">
+  @if (!filtredProducts()) {
+    <span class="loader"></span>
+  } @else {
+    <div>
+      <input #product (keyup)="search(product.value)" type="text">
+    </div>
+    <div class="products">
+      @for (product of filtredProducts(); track product) {
+        <div class="product">
+          <div class="image-wrapper">
+            <img class="img" [src]="product.category.image" alt="">
+          </div>
+          <div class="details">
+            <p>
+              {{ product.title }}
+            </p>
+            <p>
+              Price: {{ product.price }}
+            </p>
+          </div>
+          <div class="action">
+            <button class="action-btn" (click)="productDetails(product.id)" type="button" mat-stroked-button>More
+              Detail
+            </button>
+            <button class="action-btn" type="button" mat-flat-button>Add To Cart</button>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="paginator">
+      <mat-paginator
+        class="demo-paginator"
+        (page)="handlePageEvent($event)"
+        [length]="100"
+        [pageSize]="pageSize()"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        [pageIndex]="pageIndex()"
+        aria-label="Select page">
+      </mat-paginator>
+    </div>
+  }
+</div>
 
-
-<mat-paginator
-               class="demo-paginator"
-               (page)="handlePageEvent($event)"
-               [length]="100"
-               [pageSize]="pageSize()"
-               [pageSizeOptions]="[5, 10, 25, 100]"
-               [pageIndex]="pageIndex()"
-               aria-label="Select page">
-</mat-paginator>

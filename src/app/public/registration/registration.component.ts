@@ -5,10 +5,8 @@ import {MatButton} from '@angular/material/button';
 import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {Router} from '@angular/router';
-import {takeUntil} from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {comparisonValidator} from '../../infrastructure/validators/match-password.validator';
-import {JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-registration',

@@ -5,7 +5,10 @@ import {RegistrationComponent} from './public/registration/registration.componen
 import {PrivateComponent} from './private/private.component';
 import {ProductsComponent} from './private/products/products.component';
 import {HomeComponent} from './private/home/home.component';
+import {productResolver} from './infrastructure/resolvers/product.resolver';
 import {authGuard} from './infrastructure/guards/auth.guard';
+import {ProductDetailsComponent} from './private/product-details/product-details.component';
+import {ProductService} from './private/product.service';
 
 export const appRoutes: Routes = [
   { path: '',
@@ -19,10 +22,12 @@ export const appRoutes: Routes = [
   },
   { path: '',
     component: PrivateComponent,
+    providers: [ProductService],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent},
       { path: 'products', component: ProductsComponent},
+      { path: 'product-details/:id', component: ProductDetailsComponent, resolve: {product: productResolver}},
     ]
   },
   // { path: '**', component: HomeComponent },

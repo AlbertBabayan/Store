@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="product">
+    <div class="image-wrapper">
+      <img class="img" [src]="product().category.image" alt="">
+    </div>
+    <div class="details">
+      <p>
+        <span class="details-title">Product ID:</span> {{ product().id }}
+      </p>
+      <p>
+        <span class="details-title">Product:</span> {{ product().title }}
+      </p>
+      <p>
+        <span class="details-title">Price:</span> {{ product().price }}
+      </p>
+      <p>
+        <span class="details-title">Category:</span> {{ product().category.name }}
+      </p>
+      <p>
+        <span class="details-title">Description:</span> {{ product().description }}
+      </p>
+    </div>
+    <div class="action">
+      <button class="backspace" (click)="products()" type="button">
+        <i class="ph-arrow-circle-left backspace-icon"></i>
+      </button>
+      <button class="action-btn" type="button" mat-flat-button>Add To Cart</button>
+    </div>
+  </div>
+</div>
