@@ -8,7 +8,7 @@ import {HomeComponent} from './private/home/home.component';
 import {productResolver} from './infrastructure/resolvers/product.resolver';
 import {authGuard} from './infrastructure/guards/auth.guard';
 import {ProductDetailsComponent} from './private/product-details/product-details.component';
-import {ProductService} from './private/product.service';
+import {CartComponent} from './private/cart/cart.component';
 
 export const appRoutes: Routes = [
   { path: '',
@@ -22,12 +22,13 @@ export const appRoutes: Routes = [
   },
   { path: '',
     component: PrivateComponent,
-    providers: [ProductService],
+    // providers: [ProductService],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent},
       { path: 'products', component: ProductsComponent},
       { path: 'product-details/:id', component: ProductDetailsComponent, resolve: {product: productResolver}},
+      { path: 'cart', component: CartComponent},
     ]
   },
   // { path: '**', component: HomeComponent },

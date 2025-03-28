@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  height: 40px;
+
+  .wrapper {
+    width: 100%;
+
+    .link {
+      display: flex;
+      gap: 20px;
+      padding-left: 20px;
+
+      .link-item:hover {
+        color: gray;
+        cursor: pointer;
+      }
+    }
+  }
+}

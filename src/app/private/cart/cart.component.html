@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="cart-items">
+    @if (selectedItems().length) {
+      <div class="list">
+        @for (cartItem of selectedItems(); track cartItem) {
+          @let item = cartItem.item;
+          <div class="item">
+            <div class="image-wrapper">
+              <img class="img" [src]="item.category.image" alt="">
+            </div>
+            <div class="details">
+              <p class="item-details">
+                <span class="details-title">Product:</span> {{ item.description | truncate: 100 }}
+              </p>
+              <p>
+                <span class="details-title">Price:</span> {{ item.price }}
+              </p>
+              <p>
+                <span class="details-title">ID:</span> {{ item.id }}
+              </p>
+            </div>
+            <div class="action">
+              <div class="product-count">
+                <i class="ph-minus" (click)="removeProduct(item)"></i>
+                <span>{{ cartItem.count }}</span>
+                <i class="ph-plus" (click)="addProduct(item)"></i>
+              </div>
+              <div class="trash">
+                <i class="ph-trash" (click)="deleteFromList(item)"></i>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="empty-cart-wrapper">
+        <div class="empty-cart"></div>
+      </div>
+    }
+  </div>
+  <div class="order">
+    <div class="title-wrapper">
+      <span class="title">Order Summary</span>
+    </div>
+    <div class="price">
+      <div class="total-details">
+        <div class="total">
+          <span>Total:</span>
+          <span>value</span>
+        </div>
+        <div class="estimate-shipping">
+          <span>Estimate shipping:</span>
+          <span>value</span>
+        </div>
+      </div>
+      <div class="subtotal">
+        <span>Subtotal:</span>
+        <span>{{countOfPrices()}}</span>
+      </div>
+    </div>
+    <div class="action">
+
+    </div>
+  </div>
+</div>

@@ -1,12 +1,10 @@
-import {Component, computed, DestroyRef, effect, inject, signal} from '@angular/core';
+import {Component, computed, inject, signal} from '@angular/core';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {ProductService} from '../product.service';
-import {takeUntilDestroyed, toSignal} from '@angular/core/rxjs-interop';
+import {toSignal} from '@angular/core/rxjs-interop';
 import {IProduct} from '../../infrastructure/interfaces/product.interface';
 import {MatButton} from '@angular/material/button';
 import {Router} from '@angular/router';
-import {map, tap} from 'rxjs';
-import {JsonPipe, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-products',
@@ -14,8 +12,6 @@ import {JsonPipe, NgIf} from '@angular/common';
   imports: [
     MatPaginator,
     MatButton,
-    NgIf,
-    JsonPipe,
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
@@ -23,7 +19,6 @@ import {JsonPipe, NgIf} from '@angular/common';
 export class ProductsComponent {
 
   private productService = inject(ProductService)
-  private destroyRef = inject(DestroyRef)
   private router = inject(Router);
   public pageSize = signal(25);
   public pageIndex = signal(0);
@@ -45,5 +40,9 @@ export class ProductsComponent {
 
   public productDetails(id: number) {
     this.router.navigate(['product-details', id]);
+  }
+
+  public addToCart(product: IProduct) {
+    this.productService.addToCartList(product);
   }
 }
