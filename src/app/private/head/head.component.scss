@@ -1,18 +1,51 @@
 .container {
   display: flex;
-  height: 40px;
+  box-shadow: 0 0 8px 2px #dcdbdb;
 
   .wrapper {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 
     .link {
       display: flex;
       gap: 20px;
-      padding-left: 20px;
 
       .link-item:hover {
         color: gray;
         cursor: pointer;
+      }
+
+      .link-item {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .action {
+      display: flex;
+      align-items: center;
+
+      .cart {
+        display: flex;
+        align-items: center;
+
+        .shopping-cart {
+          font-size: 30px;
+        }
+
+        .cart-wrapper {
+          position: relative;
+          bottom: 13px;
+          right: 11px;
+          background: #dedeff;
+          border-radius: 100%;
+
+          .cart-count {
+            margin: 5px;
+          }
+        }
       }
     }
   }

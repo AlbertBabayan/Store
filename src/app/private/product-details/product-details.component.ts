@@ -1,18 +1,18 @@
 import {Component, inject} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {toSignal} from '@angular/core/rxjs-interop';
-import {map, Subject} from 'rxjs';
+import {map} from 'rxjs';
 import {IProduct} from '../../infrastructure/interfaces/product.interface';
 import {MatButton} from '@angular/material/button';
-import {JsonPipe} from '@angular/common';
 import {ProductService} from '../product.service';
+import {TruncatePipe} from '../../infrastructure/pipes/truncate.pipe';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
   imports: [
     MatButton,
-    JsonPipe
+    TruncatePipe,
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'

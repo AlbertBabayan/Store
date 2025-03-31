@@ -1,7 +1,20 @@
 <div class="container">
   <div class="wrapper">
     <div class="link">
-      <p class="link-item" (click)="navToProducts()">Products</p>
-      <p class="link-item" (click)="navToCarts()">Cart</p>
+      <div class="link-item">
+        <p (click)="navToHome()">Home</p>
+      </div>
+      <div class="link-item">
+        <p (click)="navToProducts()">Products</p>
+      </div>
+    </div>
+    <div class="action">
+      <div class="cart">
+        <i class="ph-shopping-cart shopping-cart" (click)="navToCarts()"></i>
+        <div class="cart-wrapper">
+          <span class="cart-count">{{ count() }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

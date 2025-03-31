@@ -7,6 +7,7 @@ import {MatInput} from '@angular/material/input';
 import {Router} from '@angular/router';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {comparisonValidator} from '../../infrastructure/validators/match-password.validator';
+import {tap} from 'rxjs';
 
 @Component({
   selector: 'app-registration',
@@ -42,6 +43,11 @@ export class RegistrationComponent {
       password: this.createForm.controls.password.value,
       avatar: this.createForm.controls.photoUrl.value,
     }).pipe(
+      tap(res => {
+        if(res.email) {
+          this.router.navigate(['home']);
+        }
+      }),
       takeUntilDestroyed(this.destroyRef),
     ).subscribe();
   }

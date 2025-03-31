@@ -6,6 +6,7 @@ import {MatButton} from '@angular/material/button';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import {tap} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,11 @@ export class LoginComponent {
 
   public login() {
     this.authService.login(this.loginForm.getRawValue()).pipe(
+      tap(res => {
+        if(res.access_token) {
+          this.router.navigate(['home']);
+        }
+      }),
       takeUntilDestroyed(this.destroyRef)
     ).subscribe();
   }
